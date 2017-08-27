@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*- 2
 
 import numpy as np
-import pylab as pl  #画图功能
 from sklearn import svm
+import matplotlib
+matplotlib.use('TkAgg')
+import matplotlib.pyplot as pl
+
 
 # 几次运行随机值结果相同。
 np.random.seed(0)
@@ -33,7 +36,7 @@ yy_down = a * xx + (b[1] - a * b[0])
 b = classifier.support_vectors_[-1]
 yy_up = a * xx + (b[1] - a * b[0])
 
-print 1
+
 pl.plot(xx, yy, 'k-')
 pl.plot(xx, yy_down, 'k--')
 pl.plot(xx, yy_up, 'k--')
@@ -43,9 +46,9 @@ pl.scatter(classifier.support_vectors_[:, 0], classifier.support_vectors_[:, 1],
 pl.scatter(X[:, 0], X[:, 1], c=Y, cmap=pl.cm.Paired)
 
 pl.axis('tight')
-print 2
+
 pl.show()
-print 3
+
 
 
 
